@@ -1,10 +1,10 @@
-usethis::use_github()
 
 ############courbe de granulo classée ################
 
 library(ggplot2)
 
 # Importer les données de granulométrie classée
+
 library(readr)
 library(dplyr)
 
@@ -16,6 +16,7 @@ View(wolman_2015_aval)
 effectifs <- table(wolman_2015_aval)
 View(effectifs)
 class(effectifs)
+
 #transformer la table en data frame
 
 dataframe_frequence <- as.data.frame(effectifs)
@@ -35,7 +36,7 @@ ggplot(data=wolman_cumul, aes(x = Diam, y = Freq,group=1)) +
   geom_line() +
   labs(x ="Diametre", y = "Pourcentage cumulatif", title = "Courbe de granulométrie classée")
 
-########   médiane 
+########   Calcul de médiane , D16,D50,D86
 
 median(wolman_cumul$Y)
 
